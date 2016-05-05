@@ -20,7 +20,7 @@ unsigned int getothersshift ();
 unsigned int getothersI ();
 unsigned int getothersJ ();
 unsigned int getothersluI ();
-unsigned int getothers(unsigned int);
+unsigned int getothers(unsigned int x);
 int main(void) {
 	unsigned int inst,code,others;
 	/*pointer to the first line in the file 8*/
@@ -103,7 +103,7 @@ unsigned int getothersRd (void)
     int temp2;/*temp int to get the integer Reg number*/
     char count=0;/*counter for the Reg number in the instruction line */
     char line[50];/*temp array to get the whole line after the instruction*/
-    unsigned char i=0;/*line cursor*/
+    char i=0;/*line cursor*/
 
     fgets(line,50,fpr);/*getting the whole line after the instruction*/
  while (line [i]!= '\n') /*as i am in the same line or instruction*/
@@ -118,7 +118,6 @@ unsigned int getothersRd (void)
 	 temp [0]= line[i+1] ;/*getting the string reg number */
      temp [1]= line[i+2] ;
      temp2 = atoi(temp);/*converting the string number to integer*/
-     printf("%d \n",sizeof(temp2));
      printf("%d \n",temp2);
 	 if (count==1)
 	 {/* first reg is Rd so in the code it is shifted lift by 11 */
@@ -145,11 +144,11 @@ unsigned int getothersRd (void)
 /*============Second Type=======================*/
 unsigned int getothersRs (void)
 {   unsigned int y=0;/*the ouput of the function*/
-    unsigned char temp [2];/*temp array to get the string Reg number*/
-    unsigned int temp2;/*temp int to get the integer Reg number*/
+    char temp [2];/*temp array to get the string Reg number*/
+    int temp2;/*temp int to get the integer Reg number*/
     char count=0;/*counter for the Reg number in the instruction line */
     char line[50];/*temp array to get the whole line after the instruction*/
-    unsigned char i=0;/*line cursor*/
+    char i=0;/*line cursor*/
 
     fgets(line,50,fpr);/*getting the whole line after the instruction*/
  while (line [i]!= '\n')
@@ -186,13 +185,13 @@ unsigned int getothersRs (void)
 /*============Third Type=======================*/
 unsigned int getothersshift (void)
 {   unsigned int y=0;/*the ouput of the function*/
-    unsigned char temp [2];/*temp array to get the string Reg number*/
-    unsigned int temp2;/*temp int to get the integer Reg number*/
-    unsigned char SA [2];/*temp array to get the string shift amount number*/
-    unsigned int SA2=0;/*temp int to get the integer shift amount number*/
+    char temp [2];/*temp array to get the string Reg number*/
+    int temp2;/*temp int to get the integer Reg number*/
+    char SA [2];/*temp array to get the string shift amount number*/
+    int SA2=0;/*temp int to get the integer shift amount number*/
     char count=0;/*counter for the Reg number in the instruction line */
     char line[50];/*temp array to get the whole line after the instruction*/
-    unsigned char i=0;/*line cursor*/
+    char i=0;/*line cursor*/
 
     fgets(line,50,fpr);/*getting the whole line after the instruction*/
  while (line [i]!= '\n')
@@ -207,7 +206,6 @@ unsigned int getothersshift (void)
 	 temp [0]= line[i+1] ;
      temp [1]= line[i+2] ;
       temp2 = atoi(temp);
-     printf("%d \n",sizeof(temp2));
      printf("%d \n",temp2);
      if (count==1)
      	 {/* first reg is Rd so in the code it is shifted lift by 11 */
@@ -236,14 +234,14 @@ unsigned int getothersshift (void)
 /*============Fourth Type=======================*/
 unsigned int getothersI (void)
 {   unsigned int y=0; /*the ouput of the function*/
-    unsigned char temp [2];/*temp array to get the string Reg number*/
-    unsigned int temp2;/*temp int to get the integer Reg number*/
-    unsigned char IMM [5];/*temp array to get the string imm number as the maximum number for 16bit is 65535 five decimal digits */
-    unsigned int IMM2;/*temp int to get the integer imm number*/
+    char temp [2];/*temp array to get the string Reg number*/
+    int temp2;/*temp int to get the integer Reg number*/
+    char IMM [5];/*temp array to get the string imm number as the maximum number for 16bit is 65535 five decimal digits */
+    int IMM2;/*temp int to get the integer imm number*/
     char count=0;/*counter for the Reg number in the instruction line */
     char line[50];/*temp array to get the whole line after the instruction*/
-    unsigned char i=0;/*line cursor*/
-    unsigned char j=0;/*another line cursor*/
+    char i=0;/*line cursor*/
+    char j=0;/*another line cursor*/
 
     fgets(line,50,fpr);/*getting the whole line after the instruction*/
  while (line [i]!= '\n') /*as i am in the same line or instruction*/
@@ -258,7 +256,6 @@ unsigned int getothersI (void)
 	 temp [0]= line[i+1] ;/*getting the string reg number */
      temp [1]= line[i+2] ;
       temp2 = atoi(temp);/*converting the string number to integer*/
-     printf("%d \n",sizeof(temp2));
      printf("%d \n",temp2);
 	 if (count==1)
 	 {/* first reg is Rt so in the code it is shifted lift by 16 */
@@ -288,10 +285,10 @@ unsigned int getothersI (void)
 /*============Fifth Type=======================*/
 unsigned int getothersJ (void)
 {   unsigned int y=0; /*the ouput of the function*/
-    unsigned char IMM [8];/*temp array to get the string imm number as the maximum number for 26bit is 67108863 eight decimal digits */
-    unsigned int IMM2;/*temp int to get the integer imm number*/
+    char IMM [8];/*temp array to get the string imm number as the maximum number for 26bit is 67108863 eight decimal digits */
+    int IMM2;/*temp int to get the integer imm number*/
     char line[50];/*temp array to get the whole line after the instruction*/
-    unsigned char i=0;/*line cursor*/
+    char i=0;/*line cursor*/
 
     fgets(line,50,fpr);/*getting the whole line after the instruction*/
  while (line [i]!= '\n') /*as i am in the same line or instruction*/
@@ -310,14 +307,14 @@ unsigned int getothersJ (void)
 /*============Sixth Type=======================*/
 unsigned int getothersluI (void)
 {   unsigned int y=0; /*the ouput of the function*/
-    unsigned char temp [2];/*temp array to get the string Reg number*/
-    unsigned int temp2;/*temp int to get the integer Reg number*/
-    unsigned char IMM [5];/*temp array to get the string imm number as the maximum number for 16bit is 65535 five decimal digits */
-    unsigned int IMM2;/*temp int to get the integer imm number*/
+    char temp [2];/*temp array to get the string Reg number*/
+    int temp2;/*temp int to get the integer Reg number*/
+    char IMM [5];/*temp array to get the string imm number as the maximum number for 16bit is 65535 five decimal digits */
+    int IMM2;/*temp int to get the integer imm number*/
     char count=0;/*counter for the Reg number in the instruction line */
     char line[50];/*temp array to get the whole line after the instruction*/
-    unsigned char i=0;/*line cursor*/
-    unsigned char j=0;/*another line cursor*/
+    char i=0;/*line cursor*/
+    char j=0;/*another line cursor*/
 
     fgets(line,50,fpr);/*getting the whole line after the instruction*/
  while (line [i]!= '\n') /*as i am in the same line or instruction*/
@@ -332,7 +329,6 @@ unsigned int getothersluI (void)
 	 temp [0]= line[i+1] ;/*getting the string reg number */
      temp [1]= line[i+2] ;
      temp2 = atoi(temp);/*converting the string number to integer*/
-     printf("%d \n",sizeof(temp2));
      printf("%d \n",temp2);
 	 /* first reg is Rt so in the code it is shifted lift by 16 */
     	 y|=(temp2<<16);//Rt
@@ -341,7 +337,9 @@ unsigned int getothersluI (void)
     	        IMM [j]=line [i+j+4];/*as i now on the second R of the line meaning the imm is 4 char away*/
     	     	j++;
     	  }
-	 printf("%d \n",y);
+    	 IMM2 = atoi(IMM);
+    	 y|=IMM2;
+    	 printf("%d \n",y);
    }
    i++;
  }
@@ -355,40 +353,40 @@ unsigned int getothersluI (void)
 /*this function determine the instruction layout type*/
 unsigned int getothers(unsigned int x)
 {  unsigned int y;
-	if ( (x==0x00000020)||(x==0x00000021)||(x==0x00000022)||(x==0x00000023)||(x==0x00000024)||(x==0x00000025)||\
-	     (x==0x00000026)||(x==0x00000027)||(x==0x00000010)||(x==0x00000012)||(x==0x0000002A)|| (x=0x0000002B))
+	if ( (x==32)||(x==33)||(x==34)||(x==35)||(x==36)||(x==37)||\
+	     (x==38)||(x==39)||(x==16)||(x==18)||(x==42)|| (x==43))
 		{  /*first type*/
-		  printf("first type \n");
+		    printf("first type \n");
 			y= getothersRd();
 		}
-	else if ((x==0x00000008)||(x==0x00000004)||(x==0x00000005)||(x==0x00000018)||(x==0x00000019)||(x==0x0000001A)||\
-			 (x==0x0000001B)||(x==0x0000000A)||(x==0x0000000B))
+	else if ((x==8)||(x==4)||(x==5)||(x==24)||(x==25)||(x==26)||\
+			 (x==27)||(x==10)||(x==11))
 			{ /*second type*/
 		     printf("second type \n");
 			 y= getothersRs();
 			}
-	else if ((x==0x00000000)||(x==0x00000002)||(x==0x00000003))
+	else if ((x==0)||(x==2)||(x==3))
 			{/*third type*/
 		      printf("third type \n");
 				y= getothersshift();
 			}
-	else if( (x==0x20000000)||(x==0x24000000)||(x==0x30000000)||(x==0x34000000)||(x==0x28000000)||(x==0x2C000000)||\
-			 (x==0x8C000000)||(x==0xAC000000)||(x==0x10000000)||(x==0x14000000))
+	else if( (x==536870912)||(x==603979776)||(x==805306368)||(x==872415232)||(x==671088640)||(x==738197504)||\
+			 (x==2348810240)||(x==2885681152)||(x==989680)||(x==335544320))
     		{/*fourth type*/
 		       printf("fourth type \n");
 		   	   y= getothersI();
     		}
-	else if((x==0x08000000)||(x==0x0C000000))
+	else if((x==134217728)||(x==201326592))
 			{/*fifth type*/
 		        printf("fifth type \n");
 				y= getothersJ();
 			}
-	else if(x==0x3C000000)
+	else if(x==1006632960)
 			{/*sixth type*/
 		       printf("sixth type \n");
 				y= getothersluI();
 			}
-	else if ((x==0x00000006)||(x=0x00000007))
+	else if ((x==6)||(x=7))
 			{/*hlt and nop*/
 		        printf("hlt or nop \n");
 				y=0x00000000;
